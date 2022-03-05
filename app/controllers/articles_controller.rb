@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
     def new
         @article=Article.new
-        #navigates to a page to fill the title and description. for temple
+        #navigates to a page to fill the title and description. for template
     end
 
     def create
