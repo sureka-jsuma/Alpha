@@ -23,8 +23,22 @@ class ArticlesController < ApplicationController
           redirect_to @article
         else
             render 'new'
-        end
-        
+        end       
     end
 
+    def edit
+        @article=Article.find(params[:id])
+    end
+
+    def update     
+        @article=Article.find(params[:id])
+        if @article.update(params.require(:article).permit(:title,:description))
+        # render plain: @article.inspect
+        flash[:notice]="Article updated successfully"
+        # redirect_to article_path(@article) or
+        redirect_to @article
+        else
+            render 'edit'
+        end
+    end
 end
