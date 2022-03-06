@@ -1,11 +1,4 @@
-<%  if @article.errors.any? %>
-  <h3>The following error preventing from saving the article</h3>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-           <li> <%= msg %> </li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render "shared/errors" %>
 
 <%= form_with(model: @article,local: true) do |f| %>
   <p>
